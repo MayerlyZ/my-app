@@ -14,24 +14,23 @@ const geistMono = Geist_Mono({
 //comment
 
 //Ejercicio fizzBuzzito
-
 //
 export default function Home() {
   function fizzBuzz(limit: number): void {
-  for (let i = 1; i <= limit; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log("FizzBuzz");
-    } else if (i % 3 === 0) {
-      console.log("Fizz");
-    } else if (i % 5 === 0) {
-      console.log("Buzz");
-    } else {
-      console.log(i);
+    for (let i = 1; i <= limit; i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+      } else if (i % 3 === 0) {
+        console.log("Fizz");
+      } else if (i % 5 === 0) {
+        console.log("Buzz");
+      } else {
+        console.log(i);
+      }
     }
   }
-}
 
-fizzBuzz(200);
+  fizzBuzz(200);
 
   return (
     <div
