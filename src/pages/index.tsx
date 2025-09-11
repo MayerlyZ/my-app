@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 //comment
 
-//Ejercicio fizzBuzz
+//Ejercicio fizzBuzzito
 
 //
 export default function Home() {
