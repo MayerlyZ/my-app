@@ -1,135 +1,151 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
+import { useState } from "react";
+import { Eye } from "lucide-react";
+import { EyeClosed } from 'lucide-react';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-//comment
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
-//Ejercicio fizzBuzzito
-//
+// //comment
+
+// //Ejercicio fizzBuzzito
+// //
+
+// interface Product {
+//     name: string;
+//     price: number;
+//     cantidad: number;
+// }
+
+// const products: Product[] = [
+//     { name: "Arroz", price: 5000, cantidad: 50 },
+//     { name: "Agua", price: 200, cantidad: 20 }
+// ];
+
 export default function Home() {
-  function fizzBuzz(limit: number): void {
-    for (let i = 1; i <= limit; i++) {
-      if (i % 3 === 0 && i % 5 === 0) {
-        console.log("FizzBuzz");
-      } else if (i % 3 === 0) {
-        console.log("Fizz");
-      } else if (i % 5 === 0) {
-        console.log("Buzz");
-      } else {
-        console.log(i);
-      }
-    }
+
+
+  //  const [state, setState] = useState(false);
+  
+  //     const toggleState = () => {
+  //         setState(!state);
+  //     };
+  
+  //     return (
+  //         <div>
+  //           <h1>Productos</h1>
+  //           <button onClick={toggleState} style={{ background: "#dc3535", alignItems: "center", gap: "8px" }}>
+          
+  //               {state ? (
+  //               <>
+  //                 <EyeClosed /> <span>Ocultar productos</span>
+  //               </>
+  //               ) : (
+  //               <>
+  //                 <Eye /> <span>Mostrar productos</span>
+  //               </>
+  //               )}
+  //           </button>
+
+  //           {state && (
+  //             <ul>
+                
+  //               {products.map((product) => (
+  //                 <li key={product.name}>
+  //                   {product.name} - {product.price}
+  //                 </li>
+  //               ))}
+  //             </ul>
+  //           )}
+  //         </div>
+  //     );
+  // function fizzBuzz(limit: number): void {
+  //   for (let i = 1; i <= limit; i++) {
+  //     if (i % 3 === 0 && i % 5 === 0) {
+  //       console.log("FizzBuzz");
+  //     } else if (i % 3 === 0) {
+  //       console.log("Fizz");
+  //     } else if (i % 5 === 0) {
+  //       console.log("Buzz");
+  //     } else {
+  //       console.log(i);
+  //     }
+  //   }
+  // }
+
+  // fizzBuzz(200);
+
+
+class animals {
+   color:string;
+  edad:number;
+  name:string;
+
+ constructor (color: string, edad: number, name:string){
+  this.color=color;
+  this.edad=edad;
+  this.name=name
+ }
+
+ ladrar(){
+  console.log(` La mascota ${this.name} de color ${this.color} tiene ${this.edad} años`)
+ }
+}
+
+const sonido= new animals("Negro", 5,"Candy");
+
+ console.log(sonido.name);
+ sonido.ladrar();
+
+
+
+
+
+class Persona extends animals{
+  nombre:string;
+  apellido:string;
+
+  constructor(
+    nombre:string, 
+    name:string, 
+    edad:number, 
+    color:string, 
+    apellido:string)
+    {
+    super(color, edad, name);
+    this.nombre=nombre;
+    this.apellido=apellido;
+
   }
 
-  fizzBuzz(200);
+  saludar(){
+    return `Hola, me llamo ${this.nombre} ${this.apellido} y tengo una mascota que se llama ${this.name}, es de color ${this.color} y tiene ${this.edad} años`;
+  }
+}
 
-  return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+const saludito = new Persona("Mayerly", "Candy", 5, "Negro", "Zapata");
+console.log(saludito.saludar());
+
+
+
+//------------------------------------------------------------------
+//          OTRA FORMA DE CREAR UNA CLASE                          -
+//------------------------------------------------------------------
+class coche{
+  constructor(public marca:String, public año:number){
+  }
+}
+const miCoche= new coche("Toyota", 2025);
+console.log(miCoche.marca, miCoche.año)
+
+//------------------------------------------------------------------
 }
